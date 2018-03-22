@@ -26,19 +26,19 @@ func main() {
 	}
 }
 func echo(conn net.Conn) {
-	buf := make([]byte, 256)
+	messageBuf := make([]byte, 256)
 	for {
-		n, err := conn.Read(buf)
+		messageLength, err := conn.Read(messageBuf)
 		if err != nil {
 			if err == io.EOF {
 				break
 			}
 			panic(err)
 		}
-		if n == 0 {
+		if messageLength == 0 {
 			break
 		}
-		_, err = conn.Write(buf)
+		_, err = conn.Write(messageBuf)
 		if err != nil {
 			panic(err)
 		}
