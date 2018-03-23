@@ -1,9 +1,16 @@
 # Echo server
 
-### TEST
+### Run Server
 command  
 ```
-telnet localhost 8888
+go run server/main.go
 ```
+
+### Run Client
+command
+```
+go run client/main.go
+```
+
 
 
